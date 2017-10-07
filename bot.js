@@ -22,15 +22,15 @@ client.on('message', message => {
     return message.channel.send('You do not have the required permissions to execute this command.');
   }
 
-  if (message.author.id === message.mentions.users.first().id)
+  if (message.author.id === message.mentions.users.first().id) {
    return message.channel.send("You can't ban yourself!")
-   
-  if (client.user.id === message.mentions.users.first().id)
+  }
+  if (client.user.id === message.mentions.users.first().id) {
    return message.channel.send("I can't ban myself!")
-   
+  }
   if (message.mentions.users.size === 0) {
    return message.reply("Please mention a user to ban.");
-}
+  }  
    message.guild.member(userToBan).ban()
    message.channel.send("👍");
 }
