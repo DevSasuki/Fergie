@@ -1,15 +1,15 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
-let prefix = 'f:'
-
 client.on('ready', () => {
-client.user.setPresence({ game: { name: `Type 'f:help'!`, type: 0 } });
+client.user.setPresence({ game: { name: `Type 'fergie, help'`, type: 0 } });
   console.log('I am ready!');
 });
 
+const prefix = 'fergie,'
+
 client.on('message', message => {
-  if (message.content.startsWith(prefix + 'ping')) {
+  if (message.content.startsWith(prefix + ' ping')) {
   message.channel.send('Ping?').then(m => {
     m.edit(`Pong! - Time Taken: ${m.createdTimestamp - message.createdTimestamp}ms`)
   })
@@ -24,23 +24,35 @@ client.on('message', message => {
 
   if (message.author.id === message.mentions.users.first().id)
    return message.channel.send("You can't ban yourself!")
-
-if (client.user.id === message.mentions.users.first().id)
-return message.channel.send("I can't ban myself!")
-
+   
+  if (client.user.id === message.mentions.users.first().id)
+   return message.channel.send("I can't ban myself!")
+   
  if(message.mentions.users.size === 0) {
-    return message.reply("Please mention a user to ban.");
+   return message.reply("Please mention a user to ban.");
 }
    message.guild.member(userToBan).ban()
    message.channel.send(":thumbsup:");
 }
   
-  if (message.content.startsWith(prefix + ' help')) {
-    message.reply(`You've been DMed a list of commands.`)
-    message.author.send(`\`\`\`xml
+  if (message.content.startsWith(prefix + ' restart')) {
+    if (message.author.id !== "298706728856453121") {
+      return message.channel.send(`You cannot use this command, ${message.author.username}.`)
+    }
+     message.channel.send('Rebooting...').then(() => {
+       client.destroy().then(() => {
+       process.exit();
+     })
+   })
+  }
+  
+ if (message.content.startsWith(prefix + ' help')) {
+   message.reply(`You've been DMed a list of commands.`)
+   message.author.send(`\`\`\`xml
 < COMMANDS LIST >
-@Fergie ping : Checks if the bot is still alive.
-@Fergie help : Brings up this help list.\`\`\``)
+fergie, ping : Checks if the bot is still alive.
+fergie, help : Brings up this help list.
+fergie, ban : Bans the user specified (MOD)\`\`\``)
     message.author.send("You can also check out the commands here:\nhttps://github.com/Ellie-bot/Fergie/wiki/Fergie:-Commands")
 }
 });
