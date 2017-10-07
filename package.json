@@ -1,1 +1,13 @@
 
+{
+  "name": "Fergie",
+  "description": "something idk",
+  "version": "0.0.0",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "dependencies": {
+    "discord.js": "11.1.0"
+  }
+}
