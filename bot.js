@@ -6,7 +6,7 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-  if (message.content.startsWith(client.user + 'ping')) {
+  if (message.content.startsWith('ping')) {
     message.reply('Pong!');
   }
 });
