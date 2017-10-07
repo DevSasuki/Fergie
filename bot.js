@@ -14,4 +14,4 @@ message.channel.send('Pong!')
   
 })
 
-bot.login(
+bot.login(process.env.BOT_TOKEN)
