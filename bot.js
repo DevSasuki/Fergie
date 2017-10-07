@@ -23,10 +23,10 @@ client.on('message', message => {
   }
 
   if (message.author.id === message.mentions.users.first().id) {
-   return message.channel.send("You can't ban yourself!")
+   return message.channel.send("You cannot ban yourself.")
   }
   if (client.user.id === message.mentions.users.first().id) {
-   return message.channel.send("I can't ban myself!")
+   return message.channel.send("I cannot ban myself.")
   }
   if (message.mentions.users.size === 0) {
    return message.reply("Please mention a user to ban.");
