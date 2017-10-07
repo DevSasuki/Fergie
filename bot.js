@@ -8,8 +8,10 @@ client.user.setPresence({ game: { name: `Type '@Fergie ping'!`, type: 0 } });
 
 client.on('message', message => {
   if (message.content.startsWith(client.user + ' ping')) {
-  message.channel.send('Ping?').then(m => m.edit(`Pong! | Response Delay: **${m.createdTimestamp - message.createdTimestamp}ms**.`) );
-}
+  message.channel.send('Ping?').then(m => {
+    m.edit(`Pong! - Time Taken: ${m.createdTimestamp - message.createdTimestamp}ms`)
+  })
+  }
 });
 
 
