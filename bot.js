@@ -12,6 +12,14 @@ client.on('message', message => {
     m.edit(`Pong! - Time Taken: ${m.createdTimestamp - message.createdTimestamp}ms`)
   })
   }
+  
+  if (message.content.startsWith(client.user + ' help')) {
+    message.reply(`You've been DMed a list of commands.`)
+    message.author.send(`\`\`\`xml
+< COMMANDS LIST >
+@Fergie ping : Checks if the bot is still alive.
+@Fergie help : Brings up this help list.`\`\``)
+}
 });
 
 
