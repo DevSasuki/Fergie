@@ -13,7 +13,7 @@ client.on('message', message => {
   })
   }
   
-  if (message.content.startsWith(prefix + 'ban')) {
+  if (message.content.startsWith(client.user + 'ban')) {
   let userToBan = message.mentions.users.first()
   let rreason = message.content.slice(28).split(' ').join(' ')
   let reason = `Banned by ${message.author.tag}: ${rreason}`
