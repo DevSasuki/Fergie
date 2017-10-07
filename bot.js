@@ -6,8 +6,8 @@ client.on('ready', () => {
 });
 
 client.on('message', message => {
-  if (message.content.startsWith(client.user + 'ping')) {
-    message.reply('Pong!');
+  if (message.content.startsWith(client.user + ' ping')) {
+    message.reply(`Pong! ${message.createdTimestamp - message.createdTimestamp}ms`);
   }
 });
 
