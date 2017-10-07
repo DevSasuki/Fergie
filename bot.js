@@ -1,17 +1,15 @@
-const Discord = require('discord.js')
-const bot = new Discord.Client()
+const Discord = require('discord.js');
+const client = new Discord.Client();
 
-bot.on('ready' () => {
-console.log('ok')
-})
+client.on('ready', () => {
+  console.log('I am ready!');
+});
 
-bot.on('message', message => {
+client.on('message', message => {
+  if (message.content.startsWith(client.user + 'ping')) {
+    message.reply('Pong!');
+  }
+});
 
 
-if(message.content.startsWith(bot.user + 'ping')) {
-message.channel.send('Pong!')
-}
-  
-})
-
-bot.login(process.env.BOT_TOKEN)
+client.login(process.env.BOT_TOKEN)
