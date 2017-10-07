@@ -17,9 +17,9 @@ client.on('message', message => {
   
   if (message.content.startsWith(prefix + ' ban')) {
   let userToBan = message.mentions.users.first()
+  
   if (!message.member.permissions.has("BAN_MEMBERS")) {
-    message.channel.send('Sorry, you do not have permission to execute the "ban" command!');
-    return;
+    return message.channel.send('You do not have the required permissions to execute this command.');
   }
 
   if (message.author.id === message.mentions.users.first().id)
@@ -28,11 +28,11 @@ client.on('message', message => {
   if (client.user.id === message.mentions.users.first().id)
    return message.channel.send("I can't ban myself!")
    
- if(message.mentions.users.size === 0) {
+  if (message.mentions.users.size === 0) {
    return message.reply("Please mention a user to ban.");
 }
    message.guild.member(userToBan).ban()
-   message.channel.send(":thumbsup:");
+   message.channel.send("👍");
 }
   
   if (message.content.startsWith(prefix + ' restart')) {
