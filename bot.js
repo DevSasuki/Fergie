@@ -13,10 +13,8 @@ client.on('message', message => {
   })
   }
   
-  if (message.content.startsWith(client.user + 'ban')) {
+  if (message.content.startsWith(client.user + ' ban')) {
   let userToBan = message.mentions.users.first()
-  let rreason = message.content.slice(28).split(' ').join(' ')
-  let reason = `Banned by ${message.author.tag}: ${rreason}`
   if (!message.member.permissions.has("BAN_MEMBERS")) {
     message.channel.send('Sorry, you do not have permission to execute the "ban" command!');
     return;
@@ -31,7 +29,7 @@ return message.channel.send("I can't ban myself!")
  if(message.mentions.users.size === 0) {
     return message.reply("Please mention a user to ban.");
 }
-   message.guild.member(userToBan).ban(reason)
+   message.guild.member(userToBan).ban()
    message.channel.send(":thumbsup:");
 }
   
