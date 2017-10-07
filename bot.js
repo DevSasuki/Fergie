@@ -19,6 +19,7 @@ client.on('message', message => {
 < COMMANDS LIST >
 @Fergie ping : Checks if the bot is still alive.
 @Fergie help : Brings up this help list.\`\`\``)
+    message.author.send("You can also check out the commands here:\nhttps://github.com/Ellie-bot/Fergie/wiki/Fergie:-Commands")
 }
 });
 
