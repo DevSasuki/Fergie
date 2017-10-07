@@ -18,7 +18,7 @@ client.on('message', message => {
     message.author.send(`\`\`\`xml
 < COMMANDS LIST >
 @Fergie ping : Checks if the bot is still alive.
-@Fergie help : Brings up this help list.`\`\``)
+@Fergie help : Brings up this help list.\`\`\``)
 }
 });
 
