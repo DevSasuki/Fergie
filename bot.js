@@ -1,19 +1,21 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
 
+let prefix = 'f:'
+
 client.on('ready', () => {
-client.user.setPresence({ game: { name: `Type '@Fergie help'!`, type: 0 } });
+client.user.setPresence({ game: { name: `Type 'f:help'!`, type: 0 } });
   console.log('I am ready!');
 });
 
 client.on('message', message => {
-  if (message.content.startsWith(client.user + ' ping')) {
+  if (message.content.startsWith(prefix + 'ping')) {
   message.channel.send('Ping?').then(m => {
     m.edit(`Pong! - Time Taken: ${m.createdTimestamp - message.createdTimestamp}ms`)
   })
   }
   
-  if (message.content.startsWith(client.user + ' ban')) {
+  if (message.content.startsWith(prefix + ' ban')) {
   let userToBan = message.mentions.users.first()
   if (!message.member.permissions.has("BAN_MEMBERS")) {
     message.channel.send('Sorry, you do not have permission to execute the "ban" command!');
@@ -33,7 +35,7 @@ return message.channel.send("I can't ban myself!")
    message.channel.send(":thumbsup:");
 }
   
-  if (message.content.startsWith(client.user + ' help')) {
+  if (message.content.startsWith(prefix + ' help')) {
     message.reply(`You've been DMed a list of commands.`)
     message.author.send(`\`\`\`xml
 < COMMANDS LIST >
