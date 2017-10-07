@@ -6,16 +6,23 @@ client.user.setPresence({ game: { name: `Type 'fergie, help'`, type: 0 } });
   console.log('I am ready!');
 });
 
-const prefix = 'fergie,'
+let prefix = 'fergie,'
 
 client.on('message', message => {
-  if (message.content.startsWith(prefix + ' ping')) {
+ const prefixes = ['fergie, ', 'f:'];
+  let prefix = false;
+  for(const thisPrefix of prefixes) {
+    if(message.content.startsWith(thisPrefix)) prefix = thisPrefix;
+  }
+  if(!prefix) return;
+  
+  if (message.content.startsWith(prefix + 'ping')) {
   message.channel.send('Ping?').then(m => {
     m.edit(`Pong! - Time Taken: ${m.createdTimestamp - message.createdTimestamp}ms`)
   })
   }
   
-  if (message.content.startsWith(prefix + ' ban')) {
+  if (message.content.startsWith(prefix + 'ban')) {
   let userToBan = message.mentions.users.first()
   
   if (!message.member.permissions.has("BAN_MEMBERS")) {
@@ -35,7 +42,7 @@ client.on('message', message => {
    message.channel.send("👍");
 }
   
-  if (message.content.startsWith(prefix + ' restart')) {
+  if (message.content.startsWith(prefix + 'restart')) {
     if (message.author.id !== "298706728856453121") {
       return message.channel.send(`You cannot use this command, ${message.author.username}.`)
     }
@@ -46,7 +53,7 @@ client.on('message', message => {
    })
   }
   
- if (message.content.startsWith(prefix + ' help')) {
+ if (message.content.startsWith(prefix + 'help')) {
    message.reply(`You've been DMed a list of commands.`)
    message.author.send(`\`\`\`xml
 < COMMANDS LIST >
