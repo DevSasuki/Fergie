@@ -25,7 +25,7 @@ client.on('message', message => {
   if (message.author.id === message.mentions.users.first().id)
    return message.channel.send("You can't ban yourself!")
 
-if (bot.user.id === message.mentions.users.first().id)
+if (client.user.id === message.mentions.users.first().id)
 return message.channel.send("I can't ban myself!")
 
  if(message.mentions.users.size === 0) {
