@@ -46,13 +46,18 @@ client.on('message', message => {
    message.guild.member(userToBan).ban()
    message.channel.send("👍");
    var user = message.mentions.users.first()
-   const embed = new Discord.RichEmbed()
-    .setTitle(`:hammer: User Banned: ${user.tag}`)
-    .setColor(0xfffa00)
-    .addField("Responsible Moderator:", `${message.author.tag} (${message.author.id})\n\nReason: ${reason}`)
-    .setTimestamp(new Date(message.createdTimestamp))
-   
-   message.guild.channels.find("name", "mod-log").send({embed});
+   message.guild.channels.find("name", "mod-log").send('', {
+        embed: {
+          color: 0xbc1e1e,
+          author: {
+            name: message.author.tag,
+            icon_url: message.author.avatarURL
+          },
+          url: '',
+          description: `**Action:** Ban\n**Member:** ${userToBan.user.tag} (${userToBan.id})\n**Reason:** ${reason}`,
+          timestamp: new Date(),
+          }
+        });
 }
   
   if (message.content.startsWith(prefix + 'restart')) {
@@ -95,13 +100,18 @@ client.on('message', message => {
 
    userToSoftBan.ban().then(member => {message.guild.unban(member.user.id)});
      var user = message.mentions.users.first()
-     const embed = new Discord.RichEmbed()
-     .setTitle(`:hammer: User Softbanned: ${user.tag}`)
-     .setColor(0xfffa00)
-     .addField("Responsible Moderator:", `${message.author.tag} (${message.author.id})\n\nReason: ${reason}`)
-     .setTimestamp(new Date(message.createdTimestamp))
-
-     message.guild.channels.find("name", "mod-log").send({embed});
+     message.guild.channels.find("name", "mod-log").send('', {
+        embed: {
+          color: 0xbc1e1e,
+          author: {
+            name: message.author.tag,
+            icon_url: message.author.avatarURL
+          },
+          url: '',
+          description: `**Action:** Softban\n**Member:** ${userToSoftBan.user.tag} (${userToSoftBan.id})\n**Reason:** ${reason}`,
+          timestamp: new Date(),
+          }
+        });
   }
   
  if (message.content.startsWith(prefix + 'help')) {
