@@ -9,6 +9,10 @@ client.user.setPresence({ game: { name: `Type 'fergie, help'`, type: 0 } });
 let prefix = 'fergie,'
 
 client.on('message', message => {
+  const prefixMention = new RegExp(`^<@!?${client.user.id}> `);
+  prefix = prefixMention.match(message.content) ? message.content.match(prefixMention)[0] + " " : prefix;
+
+ 
  const prefixes = ['fergie, ', 'f:'];
   let prefix = false;
   for(const thisPrefix of prefixes) {
