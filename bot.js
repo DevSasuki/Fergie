@@ -8,6 +8,8 @@ client.user.setPresence({ game: { name: `Type 'fergie, help'`, type: 0 } });
 
 let prefix = 'fergie,'
 
+const fergieLyrics = ["🎶 \"Heard you in the mood for a little MILFshake\"\n*https://www.youtube.com/watch?v=bsUWK-fixiA*"]
+
 client.on('message', message => {
  const prefixes = ['fergie, ', 'f:']
   let prefix = false;
@@ -114,8 +116,8 @@ client.on('message', message => {
         });
   }
   
-  if (message.content.startsWith(prefix + 'milf')) {
-    message.reply("Heard you in the mood for a little MILFshake\nhttps://www.youtube.com/watch?v=bsUWK-fixiA")
+  if (message.content.startsWith(prefix + 'randomlyric')) {
+    message.channel.send(`${fergieLyrics[Math.floor(Math.random() * fergieLyrics.length)]}`)
   }
   
  if (message.content.startsWith(prefix + 'help')) {
@@ -126,7 +128,7 @@ fergie, ping : Checks if the bot is still alive.
 fergie, help : Brings up this help list.
 fergie, ban : Bans the user specified (MOD)
 fergie, softban : Softbans the user specified (MOD)
-fergie, milf : Uh, I can explain. (Posts the M.I.L.F. $ music video)\`\`\``)
+fergie, randomlyric : Gets a random lyric from an array.\`\`\``)
     message.author.send("You can also check out the commands here:\nhttps://github.com/Ellie-bot/Fergie/wiki/Fergie:-Commands")
 }
 });
