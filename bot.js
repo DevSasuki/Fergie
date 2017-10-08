@@ -40,6 +40,14 @@ client.on('message', message => {
   }  
    message.guild.member(userToBan).ban()
    message.channel.send("👍");
+   var user = message.mentions.users.first()
+   const embed = new Discord.RichEmbed()
+    .setTitle(`:hammer: User Banned: ${user.tag} (${user.id})`)
+    .setColor(0xfffa00)
+    .addField("Responsible Moderator:", `${message.author.tag} (${message.author.id})\n\nReason: ${reason}`)
+    .setTimestamp(new Date(message.createdTimestamp))
+   
+   message.guild.channels.find("name", "mod-log").send({embed});
 }
   
   if (message.content.startsWith(prefix + 'restart')) {
