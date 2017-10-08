@@ -10,7 +10,7 @@ let prefix = 'fergie,'
 
 client('message', message => {
 
- const prefixes = ['fergie, ', 'f:', client.user ];
+ const prefixes = ['fergie, ', 'f:']
   let prefix = false;
   for(const thisPrefix of prefixes) {
     if(message.content.startsWith(thisPrefix)) prefix = thisPrefix;
