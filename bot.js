@@ -23,6 +23,7 @@ client.on('message', message => {
   }
   
   if (message.content.startsWith(prefix + 'ban')) {
+  var reason = message.content.split(' ').slice(2).join(' ');
   let userToBan = message.mentions.users.first()
   
   if (!message.member.permissions.has("BAN_MEMBERS")) {
@@ -38,6 +39,7 @@ client.on('message', message => {
   if (message.mentions.users.size === 0) {
    return message.reply("Please mention a user to ban.");
   }  
+    
    message.guild.member(userToBan).ban()
    message.channel.send("👍");
    var user = message.mentions.users.first()
