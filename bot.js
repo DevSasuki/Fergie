@@ -47,7 +47,7 @@ client.on('message', message => {
    message.channel.send("👍");
    var user = message.mentions.users.first()
    const embed = new Discord.RichEmbed()
-    .setTitle(`:hammer: User Banned: ${user.tag} (${user.id})`)
+    .setTitle(`:hammer: User Banned: ${user.tag}`)
     .setColor(0xfffa00)
     .addField("Responsible Moderator:", `${message.author.tag} (${message.author.id})\n\nReason: ${reason}`)
     .setTimestamp(new Date(message.createdTimestamp))
@@ -96,7 +96,7 @@ client.on('message', message => {
    userToSoftBan.ban().then(member => {message.guild.unban(member.user.id)});
      var user = message.mentions.users.first()
      const embed = new Discord.RichEmbed()
-     .setTitle(`:hammer: User Softbanned: ${user.tag} (${user.id})`)
+     .setTitle(`:hammer: User Softbanned: ${user.tag}`)
      .setColor(0xfffa00)
      .addField("Responsible Moderator:", `${message.author.tag} (${message.author.id})\n\nReason: ${reason}`)
      .setTimestamp(new Date(message.createdTimestamp))
