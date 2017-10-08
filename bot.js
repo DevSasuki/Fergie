@@ -114,6 +114,9 @@ client.on('message', message => {
         });
   }
   
+  if (message.content.startsWith(prefix + 'milf')) {
+    message.reply("Heard you in the mood for a little MILFshake\nhttps://www.youtube.com/watch?v=bsUWK-fixiA")
+  
  if (message.content.startsWith(prefix + 'help')) {
    message.reply(`You've been DMed a list of commands.`)
    message.author.send(`\`\`\`xml
@@ -121,7 +124,8 @@ client.on('message', message => {
 fergie, ping : Checks if the bot is still alive.
 fergie, help : Brings up this help list.
 fergie, ban : Bans the user specified (MOD)
-fergie, softban : Softbans the user specified (MOD)\`\`\``)
+fergie, softban : Softbans the user specified (MOD)
+fergie, milf : Uh, I can explain. (Posts the M.I.L.F. $ music video)\`\`\``)
     message.author.send("You can also check out the commands here:\nhttps://github.com/Ellie-bot/Fergie/wiki/Fergie:-Commands")
 }
 });
