@@ -9,7 +9,6 @@ client.user.setPresence({ game: { name: `Type 'fergie, help'`, type: 0 } });
 let prefix = 'fergie,'
 
 client.on('message', message => {
-
  const prefixes = ['fergie, ', 'f:']
   let prefix = false;
   for(const thisPrefix of prefixes) {
