@@ -38,7 +38,10 @@ client.on('message', message => {
   }
   if (message.mentions.users.size === 0) {
    return message.reply("Please mention a user to ban.");
-  }  
+  }
+  if (!message.guild.member(userToBan).bannable) {
+   return message.channel.send("I cannot ban that member.")
+  }
     
    message.guild.member(userToBan).ban()
    message.channel.send("👍");
