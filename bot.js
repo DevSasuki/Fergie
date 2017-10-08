@@ -72,7 +72,7 @@ client.on('message', message => {
        return message.channel.send("I cannot softban that member.").catch(console.error);
      }
 
-     if (message.author.id === message.mentions.members.first().user.id) {
+     if (message.author.id === message.mentions.users.first().id) {
        return message.channel.send("You can't softban yourself.").catch(console.error);
      }
 
