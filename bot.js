@@ -116,6 +116,7 @@ client.on('message', message => {
   
   if (message.content.startsWith(prefix + 'milf')) {
     message.reply("Heard you in the mood for a little MILFshake\nhttps://www.youtube.com/watch?v=bsUWK-fixiA")
+  }
   
  if (message.content.startsWith(prefix + 'help')) {
    message.reply(`You've been DMed a list of commands.`)
