@@ -138,7 +138,8 @@ client.on('message', message => {
     } 
       
     if (orderMenuItem == "Milf" || "Fergburger") {
-      message.reply("Coming right up!").then(orderChannel.send('', {
+      message.reply("Coming right up!")
+      orderChannel.send('', {
       embed: {
         color: 0xa5a5a5,
         author: {
@@ -148,8 +149,9 @@ client.on('message', message => {
         url: '', 
         description: `**Order:** ${orderMenuItem}`,
         timestamp: new Date(),
-        })
+        }
       });
+    }
   }
         
   
