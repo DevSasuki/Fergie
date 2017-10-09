@@ -135,7 +135,7 @@ client.on('message', message => {
       
     if (orderMenuItem !== "Milf") {
       return message.reply("Sorry, that item is not on the menu.")
-    } else if (orderMenuItem !== "Fergburger") {
+    } else if (!message.content.includes("Fergburger")) {
       return message.reply("Sorry, that item is not on the menu.")
     } else {
     message.reply("Coming right up!")
