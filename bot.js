@@ -135,11 +135,8 @@ client.on('message', message => {
       
     if (orderMenuItem !== "Milf" || "Fergburger") {
       return message.reply("Sorry, that item is not on the menu.")
-    } 
-      
-    if (orderMenuItem == "Milf" || "Fergburger") {
-      message.reply("Coming right up!")
-    }.then(orderChannel.send('', {
+    } else if (orderMenuItem === "Milf" || "Fergburger") { 
+    orderChannel.send('', {
       embed: {
         color: 0xa5a5a5,
         author: {
@@ -149,8 +146,9 @@ client.on('message', message => {
         url: '', 
         description: `**Order:** ${orderMenuItem}`,
         timestamp: new Date(),
-        })
+        }
       });
+    }
   }
         
   
