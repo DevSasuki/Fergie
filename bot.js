@@ -120,6 +120,21 @@ client.on('message', message => {
     message.channel.send(`${fergieLyrics[Math.floor(Math.random() * fergieLyrics.length)]}`)
   }
   
+  if (message.content.startsWith(prefix + 'order')) {
+    let orderMenuItem = message.content.split(' ').slice(1).join(' ');
+    if (!["298706728856453121", "229552088525438977"].includes(message.author.id)) {
+      return message.reply("Sorry! This command is developer only until it becomes stable.")
+    }
+    
+    if (!orderMenuItem) {
+    return message.reply("You didn't provide any arguments.")
+    }
+    
+    if (orderMenuItem === "Milf" || "Fergburger") {
+      message.reply(`You ordered: ${orderMenuItem}`)
+    }
+  }
+  
  if (message.content.startsWith(prefix + 'help')) {
    message.reply(`You've been DMed a list of commands.`)
    message.author.send(`\`\`\`xml
@@ -128,7 +143,8 @@ fergie, ping : Checks if the bot is still alive.
 fergie, help : Brings up this help list.
 fergie, ban : Bans the user specified (MOD)
 fergie, softban : Softbans the user specified (MOD)
-fergie, randomlyric : Gets a random lyric from an array.\`\`\``)
+fergie, randomlyric : Gets a random lyric from an array.
+fergie, order : Place an order (DEV COMMAND - Temp)\`\`\``)
     message.author.send("You can also check out the commands here:\nhttps://github.com/Ellie-bot/Fergie/wiki/Fergie:-Commands")
 }
 });
