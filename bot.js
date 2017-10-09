@@ -134,7 +134,7 @@ client.on('message', message => {
     }
       
     if (orderMenuItem !== "Milf" || "Fergburger") {
-      message.reply("Sorry, that item is not on the menu.")
+      return message.reply("Sorry, that item is not on the menu.")
     } 
     
     orderChannel.send('', {
