@@ -133,7 +133,9 @@ client.on('message', message => {
       return message.reply("I cannot log the order as there's no \"order-requests\" channel.")
     }
       
-    if (!orderMenuItem === "Milf" || "Fergburger") {
+    if (orderMenuItem !== "Milf") {
+      return message.reply("Sorry, that item is not on the menu.")
+    } else if (orderMenuItem !== "Fergburger") {
       return message.reply("Sorry, that item is not on the menu.")
     } else {
     message.reply("Coming right up!")
