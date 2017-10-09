@@ -122,6 +122,7 @@ client.on('message', message => {
   
   if (message.content.startsWith(prefix + 'order')) {
     let orderMenuItem = message.content.split(' ').slice(1).join(' ');
+    let orderChannel = message.guild.channels.find("name", "order-requests")
     if (!["298706728856453121", "229552088525438977"].includes(message.author.id)) {
       return message.reply("Sorry! This command is developer only until it becomes stable.")
     }
@@ -130,8 +131,8 @@ client.on('message', message => {
     return message.reply("You didn't provide any arguments.")
     }
     
-    if (orderMenuItem === "Milf" || "Fergburger") {
-      message.reply(`You ordered: ${orderMenuItem}`)
+    if (orderMenuItem !== "Milf" || "Fergburger") {
+      message.reply("Sorry, that item is not on the menu.")
     }
   }
   
