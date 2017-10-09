@@ -63,7 +63,7 @@ client.on('message', message => {
 }
   
   if (message.content.startsWith(prefix + 'restart')) {
-    if (!["298706728856453121", "229552088525438977"].includes(message.author.id)) 
+    if (!["298706728856453121", "229552088525438977"].includes(message.author.id)) return;
      message.channel.send('Rebooting...').then(() => {
        client.destroy().then(() => {
        process.exit();
