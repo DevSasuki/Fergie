@@ -63,7 +63,7 @@ client.on('message', message => {
 }
   
   if (message.content.startsWith(prefix + 'restart')) {
-    if (message.author.id !== "298706728856453121") {
+    if (!["298706728856453121", "229552088525438977"].includes(message.author.id)) {
       return message.channel.send(`You cannot use this command, ${message.author.username}.`)
     }
      message.channel.send('Rebooting...').then(() => {
@@ -125,16 +125,32 @@ client.on('message', message => {
     let orderChannel = message.guild.channels.find("name", "order-requests")
     if (!["298706728856453121", "229552088525438977"].includes(message.author.id)) {
       return message.reply("Sorry! This command is developer only until it becomes stable.")
-    }
-    
+    } 
+      
     if (!orderMenuItem) {
-    return message.reply("You didn't provide any arguments.")
+      return message.reply("You didn't provide any arguments.")
+    } 
+      
+    if (!orderChannel) {
+      return message.reply("I cannot log the order as there's no \"order-requests\" channel.")
     }
-    
+      
     if (orderMenuItem !== "Milf" || "Fergburger") {
       message.reply("Sorry, that item is not on the menu.")
-    }
+    } else if orderChannel.send('', {
+      embed: {
+        color: 0xa5a5a5,
+        author: {
+          name: message.author.tag,
+          icon_url: message.author.avatarURL
+        },
+        url: '', 
+        description: `**Order:** ${orderMenuItem}`,
+        timestamp: new Date(),
+        }
+      });
   }
+        
   
  if (message.content.startsWith(prefix + 'help')) {
    message.reply(`You've been DMed a list of commands.`)
