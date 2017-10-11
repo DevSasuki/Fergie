@@ -18,7 +18,7 @@ client.on('guildMemberAdd', member => {
         color: 0x4af43a,
         url: '',
         thumbnail: {url: `${member.user.avatarURL}`},
-        title: `:inbox_tray: ${member.user.tag} joined.`,
+        title: `✅ ${member.user.tag} joined.`,
 
         description: `You now have ${guild.memberCount} members`,
         }
@@ -33,7 +33,7 @@ client.on('guildMemberRemove', member => {
         color: 0xdda325,
         url: '',
         thumbnail: {url: `${member.user.avatarURL}`},
-        title: `:outbox_tray: ${member.user.tag} left.`,
+        title: `❌ ${member.user.tag} left.`,
 
         description: `You now have ${guild.memberCount} members`,
         }
