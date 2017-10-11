@@ -11,7 +11,20 @@ let prefix = 'fergie,'
 const fergieLyrics = ["🎶 \"Heard you in the mood for a little MILFshake\"\n*https://www.youtube.com/watch?v=bsUWK-fixiA*"]
 
 client.on('guildMemberAdd', member => {
- 
+ const moment = require('moment')
+  let guild = member.guild;
+  const fromNow = moment(member.user.createdTimestamp).fromNow();
+   const isNew = (new Date() - member.user.createdTimestamp) < 900000 ? "*New Account*" : "";
+   guild.channels.find('name', 'mod-log').send('', {
+      embed: {
+        color: 0x4af43a,
+        url: '',
+        thumbnail: {url: `${member.user.avatarURL}`},
+        title: `:inbox_tray: ${member.user.tag} (${member.user.id}) joined.`,
+
+        description: `Created ${fromNow} ${isNew}`,
+        }
+      });
 })
 
 client.on('message', message => {
