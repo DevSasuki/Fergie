@@ -10,6 +10,10 @@ let prefix = 'fergie,'
 
 const fergieLyrics = ["🎶 \"Heard you in the mood for a little MILFshake\"\n*https://www.youtube.com/watch?v=bsUWK-fixiA*"]
 
+client.on('guildMemberAdd', member => {
+ 
+})
+
 client.on('message', message => {
  const prefixes = ['fergie, ', 'f:']
   let prefix = false;
