@@ -12,17 +12,34 @@ const fergieLyrics = ["🎶 \"Heard you in the mood for a little MILFshake\"\n*h
 
 client.on('guildMemberAdd', member => {
   let guild = member.guild;
+  if(!guild.id !== '366844896742473729') return
    guild.channels.find('name', 'join-log').send('', {
       embed: {
         color: 0x4af43a,
         url: '',
         thumbnail: {url: `${member.user.avatarURL}`},
-        title: `:inbox_tray: ${member} joined.`,
+        title: `:inbox_tray: ${member.user.tag} joined.`,
 
-        description: `ID: ${member.user.id} \n You now have ${guild.memberCount} members.`,
+        description: `You now have ${guild.memberCount} members`,
         }
       });
 })
+
+client.on('guildMemberRemove', member => {
+  let guild = member.guild;
+  if(!guild.id !== '366844896742473729') return
+   guild.channels.find('name', 'join-log').send('', {
+      embed: {
+        color: 0xdda325,
+        url: '',
+        thumbnail: {url: `${member.user.avatarURL}`},
+        title: `:outbox_tray: ${member.user.tag} left.`,
+
+        description: `You now have ${guild.memberCount} members`,
+        }
+      });
+})
+
 
 client.on('message', message => {
  const prefixes = ['fergie, ', 'f:']
