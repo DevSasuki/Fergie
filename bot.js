@@ -19,7 +19,7 @@ client.on('guildMemberAdd', member => {
         thumbnail: {url: `${member.user.avatarURL}`},
         title: `:inbox_tray: ${member} joined.`,
 
-        description: `ID: ${member.user.id} \n You now have ${message.guild.memberCount} members.`,
+        description: `ID: ${member.user.id} \n You now have ${guild.memberCount} members.`,
         }
       });
 })
