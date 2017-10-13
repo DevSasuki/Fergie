@@ -200,7 +200,7 @@ fergie, order : Place an order (DEV COMMAND - Temp)\`\`\``)
 }
 
 if(message.content.startsWith(prefix + 'eval')) {
-if(message.author.id !== '298706728856453121') return
+if (!["298706728856453121", "229552088525438977"].includes(message.author.id)) return;
 let evall = message.content.split(' ')[0];
 let evalstuff = message.content.split(" ").slice(1).join(" ")
 try {
