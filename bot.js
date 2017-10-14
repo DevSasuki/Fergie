@@ -40,6 +40,20 @@ client.on('guildMemberRemove', member => {
       });
 })
 
+client.on('messageDelete', message => {
+  let guild = message.guild;
+  if(guild.id !== '366844896742473729') return
+   guild.channels.find('name', 'message-log').send('', {
+      embed: {
+        color: 0xdda325,
+        url: '',
+        thumbnail: {url: `${guild.iconURL}`},
+        title: `🚫 ${message.author}'s message was deleted`,
+
+        description: `Content: \`\`\`${message}\`\`\` `,
+        }
+      });
+})
 
 client.on('message', message => {
  const prefixes = ['fergie, ', 'f:']
