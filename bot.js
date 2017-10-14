@@ -241,6 +241,14 @@ try {
      message.channel.send({embed});
    }
  }
+  
+    if (message.content.startsWith(prefix + 'say')) {
+    if (!["298706728856453121", "229552088525438977"].includes(message.author.id)) return;
+    let args = message.content.split(' ').slice(1).join(' ')
+    message.delete();
+    message.channel.send(`${args}`)
+  }
+});
 
 function clean(text) {
  if (typeof(text) === 'string')
@@ -248,7 +256,6 @@ function clean(text) {
  else
      return text;
 }
-});
 
 
 client.login(process.env.BOT_TOKEN)
