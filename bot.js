@@ -12,7 +12,7 @@ const fergieLyrics = ["🎶 \"Heard you in the mood for a little MILFshake\"\n*h
 
 client.on('guildMemberAdd', member => {
   let guild = member.guild;
-  if(guild.id !== '366844896742473729') return
+  if(!guild channels.find('name', 'join-log'))  return
    guild.channels.find('name', 'join-log').send('', {
       embed: {
         color: 0x4af43a,
@@ -27,7 +27,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('guildMemberRemove', member => {
   let guild = member.guild;
-  if(guild.id !== '366844896742473729') return
+  if(!guild.channels.find('name', 'join-log')) return
    guild.channels.find('name', 'join-log').send('', {
       embed: {
         color: 0xdda325,
@@ -42,7 +42,7 @@ client.on('guildMemberRemove', member => {
 
 client.on('messageDelete', message => {
   let guild = message.guild;
-  if(guild.id !== '366844896742473729') return
+  if(!guild.channels.find('name', 'message-log')) return
    guild.channels.find('name', 'message-log').send('', {
       embed: {
         color: 0xdda325,
