@@ -44,7 +44,7 @@ client.on('messageDelete', message => {
       embed: {
         color: 0xdda325,
         url: '',
-        thumbnail: {url: `${guild.iconURL}`},
+        thumbnail: {url: `${message.author.avatarURL}`},
         title: `🚫 Message deleted by ${message.author.tag}`,
 
         description: `Content: \`\`\`${message}\`\`\` `,
