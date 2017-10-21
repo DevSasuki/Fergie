@@ -56,6 +56,7 @@ client.on('messageDelete', message => {
 })
 
 client.on('message', message => {
+if(message.author.bot) return
  const prefixes = ['fergie, ', 'f:']
   let prefix = false;
   for(const thisPrefix of prefixes) {
@@ -312,7 +313,7 @@ try {
     message.delete();
     message.channel.send(`${args}`)
   }
-}).catch(e => message.channel.send('An error occurred!' \n `e.stack`'))
+})
 
 function clean(text) {
  if (typeof(text) === 'string')
