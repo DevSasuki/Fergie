@@ -12,6 +12,7 @@ const fergieLyrics = ["🎶 \"Heard you in the mood for a little MILFshake\"\n*h
 
 client.on('guildMemberAdd', member => {
   let guild = member.guild;
+  if(!guild.channels.find('name', 'join-log')) return 
    guild.channels.find('name', 'join-log').send('', {
       embed: {
         color: 0x4af43a,
@@ -26,6 +27,7 @@ client.on('guildMemberAdd', member => {
 
 client.on('guildMemberRemove', member => {
   let guild = member.guild;
+  if(!guild.channels.find('name', 'join-log')) return
    guild.channels.find('name', 'join-log').send('', {
       embed: {
         color: 0xdda325,
