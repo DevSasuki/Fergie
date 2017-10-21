@@ -142,7 +142,7 @@ message.channel.send({embed: {
       },
       {
         name: 'Emojis',
-        value: `${mesaage.guild.emojis.size}`
+        value: `${message.guild.emojis.size}`
    
       },
     ],
