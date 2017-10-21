@@ -42,6 +42,7 @@ client.on('guildMemberRemove', member => {
 
 client.on('messageDelete', message => {
   let guild = message.guild;
+  if(!guild.channels.find('name', 'mesaage-log')) return
    guild.channels.find('name', 'message-log').send('', {
       embed: {
         color: 0xdda325,
