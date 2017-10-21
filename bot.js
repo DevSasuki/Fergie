@@ -312,7 +312,7 @@ try {
     message.delete();
     message.channel.send(`${args}`)
   }
-}).catch(e => message.channel.send('An error occurred!' \n `e.stack`')
+}).catch(e => message.channel.send('An error occurred!' \n `e.stack`'))
 
 function clean(text) {
  if (typeof(text) === 'string')
