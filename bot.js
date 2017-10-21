@@ -107,7 +107,7 @@ client.on('message', message => {
         });
 }
 
-if(message.content.startsWith(prefix + 'serverinfo'
+if(message.content.startsWith(prefix + 'serverinfo')) {
 message.channel.send({embed: {
     thumbnail: {url: `${message.guild.iconURL}`},
     color: 0x6bd0d6,
