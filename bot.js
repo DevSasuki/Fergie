@@ -106,7 +106,50 @@ client.on('message', message => {
           }
         });
 }
-  
+
+if(message.content.startsWith(prefix + 'serverinfo'
+message.channel.send({embed: {
+    thumbnail: {url: `${message.guild.iconURL}`},
+    color: 0x6bd0d6,
+    author: {
+      name: '',
+    },
+    title: `Info for ${message.guild.name}`,
+    description: '',
+    fields: [{
+        name: 'Owner',
+        value: `${message.channel.guild.owner.user.tag} (${message.channel.guild.owner.user.id})`
+      },
+      {
+        name: 'Members',
+        value: `${message.guild.memberCount - message.guild.members.filter(m=>m.user.bot).size} (${message.guild.members.filter(m=>m.user.bot).size} bots)`,
+      },
+      {
+        name: 'Region',
+        value: `${message.guild.region}`
+      },
+      {
+        name: 'ID',
+        value: `${message.guild.id}`
+      },
+      {
+        name: 'Channels',
+        value: `${message.guild.channels.size}`
+      },
+      {
+        name: 'Created at',
+        value: `${message.guild.createdAt.toString().substr(0, 15)}`
+      },
+      {
+        name: 'Emojis',
+        value: `${mesaage.guild.emojis.size}`
+   
+      },
+    ],
+  }
+  })
+  }
+          
   if (message.content.startsWith(prefix + 'restart')) {
     if (!["298706728856453121", "229552088525438977"].includes(message.author.id)) return;
      message.channel.send('Rebooting...').then(() => {
