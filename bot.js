@@ -2,8 +2,8 @@ const Discord = require('discord.js');
 const client = new Discord.Client();
 
 client.on('ready', () => {
-client.user.setPresence({ game: { name: `Type 'fergie, help'`, type: 0 } });
   console.log('I am ready!');
+  client.user.setPresence({ game: { name: `Type f:help`, type: 0 } });
 });
 
 let prefix = 'fergie,'
